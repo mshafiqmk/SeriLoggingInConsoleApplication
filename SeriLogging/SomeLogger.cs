@@ -1,6 +1,6 @@
 ﻿namespace SeriLogging
     {
-    public class SomeLogger
+    public class SomeLogger : ISomeLogger
         {
         private Serilog.ILogger _logger;
         private string name;
@@ -9,7 +9,7 @@
 
         public SomeLogger ()
             {
-            _logger = SomeLoggerFactor.CreateLogger(logger,activityId,name);
+            _logger = SomeLoggerFactory.CreateLogger(logger,activityId,name);
             }
         public void Info(string msg)
             {

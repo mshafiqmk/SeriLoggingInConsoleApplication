@@ -7,7 +7,7 @@ using Serilog.Exceptions;
 
 namespace SeriLogging
     {
-    public class SomeLoggerFactor
+    public class SomeLoggerFactory
         {
         internal static ILogger CreateLogger (string logger,string activityId,string name)
             {
