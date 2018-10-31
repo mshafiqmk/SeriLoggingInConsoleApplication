@@ -3,13 +3,16 @@
     public class SomeLogger : ISomeLogger
         {
         private Serilog.ILogger _logger;
-        private string name;
-        private string activityId;
+        private string _name;
+        private string _activityId;
         private string logger;
 
-        public SomeLogger ()
+        public SomeLogger (string logger,string activityId,string name)
             {
-            _logger = SomeLoggerFactory.CreateLogger(logger,activityId,name);
+            this._name       = name;
+            this._activityId = activityId;
+            this.logger     = logger;
+            _logger         = SomeLoggerFactory.CreateLogger(logger,activityId,name);
             }
         public void Info(string msg)
             {

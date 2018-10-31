@@ -24,6 +24,10 @@ namespace SeriLogging
             Log.Error("Some Error");
             Log.CloseAndFlush();
             Console.WriteLine ("Hello World!");
+
+            var logger  = new SomeLogger("ShafiqLogger",Guid.NewGuid().ToString(),"Program.cs");
+            logger.Info("Info : Some Info Message For Testing");
+            logger.Error("Error : Some Error Occurs ");
             }
         }
     }

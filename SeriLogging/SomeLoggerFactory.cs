@@ -11,15 +11,15 @@ namespace SeriLogging
         {
         internal static ILogger CreateLogger (string logger,string activityId,string name)
             {
-            var serverUrl = string.Empty;
+            var serverUrl = "http://localhost:5341";
             var apikey = string.Empty;
             var enricher = new ApplicationDetailsEnricher(logger,activityId,name);
 
             var loggerConfig = new LoggerConfiguration ()
-                .WriteTo.Seq(serverUrl,apiKey:apikey,compact:true)
+                .WriteTo.Seq(serverUrl)
                 .Enrich.WithExceptionDetails()
                 .Enrich.With(enricher);
-            ;
+          
             var log = loggerConfig.CreateLogger();
             Log.Logger = log;
             return log;
